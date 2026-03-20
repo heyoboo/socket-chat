@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+<div id="topbar">
+  <span id="online-badge"><span class="count" id="online-num">0</span> online</span>
+  <button id="theme-toggle">light</button>
+</div>
+
+<!-- LOBBY -->
+<div id="lobby" class="screen active">
+  <h1>anon chat</h1>
+  <input id="name-input" type="text" placeholder="your name" maxlength="24" autocomplete="off"/>
+  <button id="find-btn" disabled>find someone</button>
+</div>
+
+<!-- WAITING -->
+<div id="waiting" class="screen">
+  <p class="dot-anim">looking<span>.</span><span>.</span><span>.</span></p>
+  <button id="cancel-wait-btn">cancel</button>
+</div>
+
+<!-- CHAT -->
+<div id="chat-screen">
+  <div id="chat-header">
+    <div class="status-dot" id="status-dot"></div>
+    <span id="partner-label">—</span>
+  </div>
+
+  <div id="messages"></div>
+
+  <div id="typing-indicator">
+    <div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>
+    <span id="typing-name"></span>&nbsp;is typing
+  </div>
+
+  <div id="input-area">
+    <div id="input-row">
+      <textarea id="msg-input" placeholder="message…" maxlength="500" rows="1"></textarea>
+      <button id="send-btn">send</button>
+      <button id="skip-btn">skip</button>
+    </div>
+    <div id="char-count">500</div>
+  </div>
+
+  <button id="next-btn">find new stranger</button>
+</div>
+
+<script src="client.js"></script>
+</body>
+</html>

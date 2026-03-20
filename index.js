@@ -7,7 +7,7 @@ const app = express();
 const httpserver = http.Server(app);
 const io = socketio(httpserver);
 
-const directory = path.join(__dirname, "/");
+const directory = path.join(__dirname, "public");
 app.use(express.static(directory));
 httpserver.listen(3000);
 
